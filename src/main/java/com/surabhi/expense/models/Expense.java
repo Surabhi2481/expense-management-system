@@ -9,7 +9,6 @@ import javax.persistence.Id;
 public class Expense {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String type;
