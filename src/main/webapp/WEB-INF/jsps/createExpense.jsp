@@ -7,18 +7,21 @@
 <title>Create Expense</title>
 </head>
 <body>
-<form action="" method="">
+<form action="saveExpense" method="post">
 <pre>
 Id: <input type="text" name="id" />
 Name: <input type="text" name="name" />
 Type:-
-	Food <input type="radio" name="type" />
-	Transport <input type="radio" name="type" /> 
-	Bill <input type="radio" name="type" />
+	Food <input type="radio" name="type" value="food"/>
+	Transport <input type="radio" name="type" value="transport"/> 
+	Bill <input type="radio" name="type" value="bill" />
 Date: <input type="text" name="date" />
 Amount: <input type="text" name="amount" />
 <input type="submit" value="save" />
 </pre>
 </form>
+${msg}
+
+<a href="viewAllExpenses">View All Expenses</a>
 </body>
 </html>
