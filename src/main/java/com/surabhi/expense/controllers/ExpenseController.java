@@ -48,4 +48,20 @@ public class ExpenseController {
 		modelMap.addAttribute("allExpenses", allExpenses);
 		return "displayExpenses";
 	}
+	
+	@RequestMapping("/updateExpense")
+	public String editExpense(@RequestParam("id") int id, ModelMap modelMap) {
+		Expense expense = expenseService.getExpenseById(id);
+		modelMap.addAttribute("expense", expense);
+		return "editExpense";
+	}
+	
+	@RequestMapping("/editExpense")
+	public String updateResponse(@ModelAttribute("expense") Expense expense, ModelMap modelMap)
+	{
+		expenseService.saveExpense(expense);
+		List<Expense> allExpenses = expenseService.getAllExpense();
+		modelMap.addAttribute("allExpenses", allExpenses);
+		return "displayExpenses";
+	}
 }
