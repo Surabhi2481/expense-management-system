@@ -26,9 +26,12 @@
 		<td>${expense.type}</td>
 		<td>${expense.date}</td>
 		<td>${expense.amount}</td>
+		<td><a href="deleteExpense?id=${expense.id}">delete</a></td>
 	</tr>
 	</c:forEach>
 	
 </table>
+
+<a href="showCreate">Add New Expense</a>
 </body>
 </html>

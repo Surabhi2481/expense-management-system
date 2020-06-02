@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.surabhi.expense.models.Expense;
 import com.surabhi.expense.services.ExpenseService;
@@ -30,13 +31,21 @@ public class ExpenseController {
 		return "createExpense";
 
 	}
-	
+
 	@RequestMapping("/viewAllExpenses")
 	public String viewAllExpenses(ModelMap modelMap) {
 		List<Expense> allExpenses = expenseService.getAllExpense();
 		modelMap.addAttribute("allExpenses", allExpenses);
 		return "displayExpenses";
-		
-	}
+
 	}
 
+	@RequestMapping("/deleteExpense")
+	public String deleteExpense(@RequestParam("id") int id, ModelMap modelMap) {
+		Expense expense = expenseService.getExpenseById(id);
+		expenseService.deleteExpense(expense);
+		List<Expense> allExpenses = expenseService.getAllExpense();
+		modelMap.addAttribute("allExpenses", allExpenses);
+		return "displayExpenses";
+	}
+}

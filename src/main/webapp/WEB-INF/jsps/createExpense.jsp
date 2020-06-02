@@ -20,7 +20,7 @@ Amount: <input type="text" name="amount" />
 <input type="submit" value="save" />
 </pre>
 </form>
-${msg}
+${msg}<br />
 
 <a href="viewAllExpenses">View All Expenses</a>
 </body>
